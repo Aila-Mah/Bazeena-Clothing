@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Ysabeau+Office:wght@300;400;500;600;700&display=swap');
+
+/* GLOBAL */
+
+body {
+    font-family: "Ysabeau Office", sans-serif;
+    font-weight: 550;
+    background: hsl(0, 0%, 100%);
+    font-optical-sizing: auto;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    color: #000;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 500;
+    margin: 0 0 1rem;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+button {
+    cursor: pointer;
+    font-family: inherit;
+}
+
+/* NAVIGATION BAR */
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand img {
+    width: 90px;
+    height: 80px;
+    margin-left: 20px;
+}
+
+.bg-body-tertiary {
+    background-color: #fff !important;
+}
+
+.nav-item {
+    align-items: center;
+    margin-right: 5px;
+}
+
+.icons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.icons i {
+    margin-right: 30px;
+    color: rgb(0, 0, 0);
+    font-size: 24px;
+}
+
+.navbar-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    font-size: 20px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+}
+
+.nav-link:not(.dropdown-toggle)::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: rgb(3, 113, 117);
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    opacity: 1;
+}
+
+
+/* FOOTER */
+
+.footer {
+    margin-top: 60px;
+    background: rgba(10, 10, 10, 0.9);
+    padding: 80px 0px 0px;
+    color: #fff;
+    position: relative;
+}
+
+.footer-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.footer-box .footer-i {
+    flex: 1 1 250px;
+    min-width: 250px;
+}
+
+.footer-box .footer-i h5 {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.footer-box .footer-i label,
+.footer-box .footer-i label a {
+    display: block;
+    margin-bottom: 2px;
+    color: #ccc;
+    font-size: 14px;
+}
+
+.footer-box .footer-i label a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.footer-box .footer-i.f3 p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+    max-width: 400px;
+}
+
+.footer-box .footer-i.f3 form {
+    display: flex;
+    max-width: 400px;
+    margin-bottom: 20px;
+}
+
+.footer-box .footer-i.f3 input {
+    flex: 1;
+    padding: 12px 14px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+    font-size: 14px;
+}
+
+.footer-box .footer-i.f3 button {
+    padding: 12px 14px;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    background: rgba(255, 255, 255, 0.3);
+    color: #fff;
+    transition: background 0.3s;
+}
+
+.footer-box .footer-i.f3 button:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.footer-box .footer-i.f3 .social-media {
+    margin-top: 20px;
+}
+
+.footer-box .footer-i.f3 .social-media a i {
+    color: #fff;
+    margin-right: 10px;
+    font-size: 20px;
+    border-radius: 50%;
+    padding: 10px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.footer-box .footer-i.f3 .social-media a i:hover {
+    background: #fff;
+    color: #000;
+}
+
+.footer-copyright {
+    text-align: center;
+    margin-top: 30px;
+    padding: 15px 0;
+    background: #000;
+    font-size: 13px;
+}
+
+/* RESPONSIVE BREAKPOINTS */
+
+@media (max-width: 992px) {
+    .navbar-brand img {
+        width: 70px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-center {
+        font-size: 15px;
+    }
+
+    .footer-box {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-box .footer-i {
+        max-width: 500px;
+        text-align: center;
+        justify-items: center;
+    }
+
+    .footer-box .footer-i.f3 form {
+        flex-direction: column;
+    }
+
+    .footer-box .footer-i.f3 input,
+    .footer-box .footer-i.f3 button {
+        border-radius: 4px;
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .footer-box .footer-i.f3 button {
+        margin-top: 10px;
+    }
+}

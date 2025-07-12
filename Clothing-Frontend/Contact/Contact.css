@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Ysabeau+Office:ital,wght@0,1..1000;1,1..1000&display=swap" rel="stylesheet');
+/*for Ysabeau Office font  (import or link)*/
+
+body {
+    font-family: "Ysabeau Office", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 550;
+    font-style: normal;
+    background:hsl(0, 0%, 100%);
+}
+
+/* GLOBAL */
+
+body {
+  font-family: "Ysabeau Office", sans-serif;
+  font-weight: 550;
+  background: hsl(0, 0%, 100%);
+  font-optical-sizing: auto;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  color: #000;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+  margin: 0 0 1rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+
+.btn-outline-success {
+  --bs-btn-color: white;
+  background: rgba(0, 0, 0, 0.377);
+  --bs-btn-border-color: rgba(255, 255, 255, 0.24);
+  --bs-btn-hover-color: black;
+  --bs-btn-hover-bg: rgba(255, 255, 255, 0.664);
+  --bs-btn-hover-border-color: black;
+  --bs-btn-focus-shadow-rgb: 25, 135, 84;
+  --bs-btn-active-color: black;
+  --bs-btn-active-bg: white;
+  --bs-btn-active-border-color: white;
+}
+
+.btn {
+  margin-left: -10px;
+}
+
+
+/*contact*/
+
+/*CONTACT FORMS*/
+.text-center {
+    text-align: center;
+    padding: 30px;
+    margin-bottom: 30px;
+  }
+    
+  .intro {
+    background: hsl(0, 0%, 100%);
+    border-radius: 5px;
+  }
+  
+  .intro h2 {
+    font-size: 36px;
+    margin-top: 5px;
+    margin-bottom: 30px;
+    color: #333;
+  }
+
+  .rte {
+    line-height: 1.5;
+    font-size: 18px;
+    color: #666;
+  }
+  
+  .text {
+    font-size: 20px;
+    color: #333;
+    padding-left: 150px;
+    padding-right: 150px;
+    margin-bottom: 50px;
+  }
+
+  .contactUs{
+    font-size: 36px;
+    margin-top: -40px;
+    color: #333;
+    margin-bottom: -50px;
+    background: hsl(0, 0%, 100%);
+    text-align: center;
+  }
+
+  section {
+    padding: 30px;
+    background-color: #ffffff;
+  }
+
+
+/* Contact Form Styles */
+
+.ftco-section {
+    background-image: url("images/Contact-w.jpeg");
+    background-repeat: no-repeat;
+    background-size: 60% 77.3%;
+    background-position: center right 15%;
+  }
+
+  .contact-wrap {
+    max-width: 600px;
+    margin: 45px;
+    padding: 35px;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+  
+
+  #form-message-warning, #form-message-success {
+    display: none;
+    padding: 10px;
+    font-size: 14px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #fff;
+  }
+  
+  #form-message-warning {
+    color: #ff0000;
+    border-color: #ff0000;
+  }
+  
+  #form-message-success {
+    color: #008000;
+    border-color: #008000;
+  }
+  
+  .contactForm {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .contactForm label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #333;
+    margin-top: -10px;
+  }
+  
+  .contactForm input[type="text"], .contactForm input[type="email"], .contactForm textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .contactForm input[type="text"]:focus, .contactForm input[type="email"]:focus, .contactForm textarea:focus {
+    border-color: #aaa;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .contactForm textarea {
+    height: 100px;
+    resize: vertical;
+  }
+  
+  .contactForm input[type="submit"] {
+    background: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .contactForm input[type="submit"]:hover {
+    background: #0a4e4e;
+  }
+  
+  .submitting {
+    display: none;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .submitting.show {
+    display: block;
+  }
+
+/*Icons*/  
+
+.socials{
+  font-size: 36px;
+  margin-top: -20px;
+  color: #333;
+  margin-bottom: -40px;
+  background: hsl(0, 0%, 100%);
+  text-align: center;
+}
+
+.social-media-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  margin-bottom: 40px;
+}
+
+.social-media-icons i {
+  font-size: 1.5em;
+  margin: 0 10px;
+  color: #555;
+  transition: color 0.3s ease;
+  margin-top: 60px;
+  padding: 10px;
+}
+
+.social-media-icons i:hover {
+  color: #0a4e4e;
+}
+
+/*css for alert messages*/
+
+.alert-success {
+    z-index: 1;
+    background: #D4EDDA;
+    font-size: 18px;
+    padding: 10px 40px;
+    min-width: 420px;
+    position: fixed;
+    right: 0;
+    top: 100px;
+    border-left: 8px solid #3AD66E;
+    border-radius: 4px;
+  }
+  
+  .alert-error {
+    z-index: 1;
+    background: #FFF3CD;
+    font-size: 18px;
+    padding: 10px 40px;
+    min-width: 420px;
+    position: fixed;
+    right: 0;
+    top: 100px; 
+    border-left: 8px solid #FFA502;
+    border-radius: 4px;
+  }
+
+  #form-message-success {
+    color: green;
+    font-weight: 500;
+    margin-top: 10px;
+    display: none;
+  }
+  
+  #form-message-warning {
+    color: red;
+    font-weight: 500;
+    margin-top: 10px;
+    display: none;
+  }
+  
+/* RESPONSIVE BREAKPOINTS */
+
+@media (max-width: 992px) {
+  .ftco-section {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px 10px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .text {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .ftco-section {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px 10px;
+  }
+
+}
