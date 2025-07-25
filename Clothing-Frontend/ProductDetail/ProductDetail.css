@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Ysabeau+Office:wght@300;400;500;600;700&display=swap');
+
+/* GLOBAL */
+
+body {
+    font-family: "Ysabeau Office", sans-serif;
+    background: hsl(0, 0%, 100%);
+    font-optical-sizing: auto;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    color: #000;
+}
+
+.product-detail-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 10px auto;
+    gap: 40px;
+    padding: 20px;
+  }
+
+  .info-section span {
+     /* Lighter than black */
+    font-weight: 450; /* Less bold than the labels */
+}
+
+  
+  .image-section img {
+    width: 400px;
+    border: 1px solid #ccc;
+  }
+  
+  .info-section {
+    flex: 1;
+  }
+  
+  .info-section .price {
+    color: #d62828;
+    font-size: 24px;
+    margin: 10px 0;
+  }
+  
+  .quantity-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 30px 0px;
+}
+
+.quantity-section button {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+    font-weight: 600;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    border-radius: 6px;
+    background-color: #fff;
+    color: black;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.quantity-section button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    transform: scale(1.05);
+}
+
+.quantity-section input[type="text"] {
+    width: 70px;
+    height: 36px;
+    text-align: center;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-weight: 500;
+    background-color: #fff;
+    color: #000;
+}
+
+  
+  .add-to-cart {
+    border: none;
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    font-weight: 550;
+    padding: 1.0rem 2.2rem;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    font-size: 16px;
+  }
+  
+
+  .add-to-cart:hover {
+    background: white;
+    color: black;
+  }
+  
+  .details-section {
+    margin-top: 30px;
+  }
+  
+
+  .image-section {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+  }
+  
+  .image-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  
+  .thumbnails {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 500px;
+    overflow-y: auto;
+  }
+  
+  .thumbnails img {
+    width: 60px;
+    height: 80px;
+    object-fit: cover;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+  }
+  
+  .thumbnails img.active,
+  .thumbnails img:hover {
+    opacity: 1;
+    border: 2px solid #333;
+  }
+  
+  #main-image {
+    width: 400px;
+    height: auto;
+    object-fit: contain;
+    border: 1px solid #ccc;
+  }
+  

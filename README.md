@@ -1,6 +1,6 @@
 To start the BACKEND:
 - cd Clothing-Frontend
-- npx serve
+- npx live-server
 
 To serve the FRONTEND:
 - cd Clothing-Backend

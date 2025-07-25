@@ -15,10 +15,16 @@ connectDB();
 
 // Routes
 const authRoutes = require('./routes/auth');
-//const productRoutes = require('./routes/products');
+const productRoutes = require('./routes/products');
+const wishlistRoutes = require('./routes/wishlistRoutes');
+const cartRoutes = require('./routes/cartRoutes');
+
+
 
 app.use('/api/auth', authRoutes);
-//app.use('/api/products', productRoutes);
+app.use('/api/products', productRoutes);
+app.use('/api/wishlist', wishlistRoutes);
+app.use('/api/cart', cartRoutes);
 
 
 // Start server
