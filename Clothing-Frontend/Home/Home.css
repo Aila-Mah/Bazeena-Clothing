@@ -85,13 +85,14 @@ img {
     object-fit: cover;
 }
 
-  .carousel-caption {
+.carousel-caption {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     margin-bottom: 40px;
-    background-color: rgba(0, 0, 0, 0.4); /* more visible overlay */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* more visible overlay */
     color: white;
     padding: 20px 10px;
     text-align: center;
@@ -99,9 +100,9 @@ img {
     font-family: "Ysabeau Office", sans-serif;
     font-weight: light;
     font-style: normal;
-  }
-  
-  
+}
+
+
 
 .carousel-caption h1 {
     font-weight: 220;
@@ -269,22 +270,22 @@ label {
         max-width: 100%;
         font-size: 14px;
         margin-bottom: 0px;
-      }
-    
-      .carousel-caption h1 {
+    }
+
+    .carousel-caption h1 {
         font-size: 20px;
         margin-bottom: 8px;
-      }
-    
-      .carousel-caption h5 {
+    }
+
+    .carousel-caption h5 {
         font-size: 14px;
-      }
-    
-      .carousel-caption button {
+    }
+
+    .carousel-caption button {
         font-size: 14px;
         padding: 6px 12px;
         margin-top: 12px;
-      }
+    }
 
 
     .welcome {

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const productSchema = new mongoose.Schema({
   name: { type: String, required: true },
-  description: String,        // Short marketing text
+  description: String,        
   piece: Number,
   details: {
     topFabric: String,
@@ -20,7 +20,7 @@ const productSchema = new mongoose.Schema({
     required: true 
   },
   color: [String],
-  images: [String],  // Array of image URLs
+  images: [String],  
   stock: { type: Number, default: 0 },
   createdAt: { type: Date, default: Date.now }
 });

@@ -1,6 +1,5 @@
 const Wishlist = require('../models/Wishlist');
 
-// Get user's wishlist
 exports.getWishlist = async (req, res) => {
   try {
     const wishlist = await Wishlist.findOne({ userId: req.params.userId }).populate('products');
@@ -11,7 +10,6 @@ exports.getWishlist = async (req, res) => {
   }
 };
 
-// Add product to wishlist
 exports.addToWishlist = async (req, res) => {
   const { userId, productId } = req.body;
 
@@ -33,7 +31,6 @@ exports.addToWishlist = async (req, res) => {
   }
 };
 
-// Remove product from wishlist
 exports.removeFromWishlist = async (req, res) => {
   const { userId, productId } = req.body;
 

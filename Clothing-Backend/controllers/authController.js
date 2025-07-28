@@ -1,24 +1,75 @@
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const crypto = require('crypto');
+const nodemailer = require('nodemailer');
 
 exports.registerUser = async (req, res) => {
   try {
     const { name, email, password } = req.body;
 
-    // Check existing user
     let user = await User.findOne({ email });
     if (user) return res.status(400).json({ msg: 'User already exists' });
 
-    // Hash password
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    // Create new user
-    user = new User({ name, email, password: hashedPassword });
+    const verificationToken = crypto.randomBytes(32).toString('hex');
+
+    user = new User({
+      name,
+      email,
+      password: hashedPassword,
+      verificationToken
+    });
+
     await user.save();
 
-    res.status(201).json({ msg: 'User registered successfully' });
+    // Send verification email
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS
+      }
+    });
+
+    const verificationURL = `http://localhost:5000/api/auth/verify-email?token=${verificationToken}`;
+
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: email,
+      subject: 'Verify your email for Bazeena Clothing',
+      html: `
+        <p>Hello ${name},</p>
+        <p>Please click the link below to verify your email address:</p>
+        <a href="${verificationURL}">${verificationURL}</a>
+        <p>This link will expire in 24 hours.</p>
+      `
+    };
+
+    await transporter.sendMail(mailOptions);
+
+    res.status(201).json({ msg: 'Verification email sent. Please check your inbox.' });
+
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server error');
+  }
+};
+
+exports.verifyEmail = async (req, res) => {
+  try {
+    const { token } = req.query;
+
+    const user = await User.findOne({ verificationToken: token });
+    if (!user) return res.status(400).send('Invalid or expired token.');
+
+    user.isVerified = true;
+    user.verificationToken = undefined; // Clear token
+    await user.save();
+
+    res.send('Email verified successfully! You can now log in.');
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server error');
@@ -36,6 +87,10 @@ exports.loginUser = async (req, res) => {
     // Check password
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) return res.status(400).json({ msg: 'Invalid credentials' });
+
+    if (!user.isVerified) {
+      return res.status(403).json({ msg: 'Please verify your email before logging in.' });
+    }    
 
     // Generate JWT
     const payload = { userId: user._id };

@@ -1,7 +1,6 @@
 const token = localStorage.getItem('token');
 
 if (!token) {
-  // Not logged in → redirect to login
   window.location.href = '../Login/Login.html';
 }
 
@@ -35,7 +34,7 @@ async function getProfile() {
 }
 
 getProfile();
-loadAddress(); 
+loadAddress();
 
 document.getElementById('logout').addEventListener('click', () => {
   localStorage.removeItem('token');
@@ -46,16 +45,13 @@ document.querySelectorAll('.tab-button').forEach(button => {
   button.addEventListener('click', () => {
     const tab = button.getAttribute('data-tab');
 
-    // Remove active class from all buttons and contents
     document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
     document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
 
-    // Add active class to clicked button and corresponding content
     button.classList.add('active');
     const section = document.querySelector(`.tab-content[data-section="${tab}"]`);
     section.classList.add('active');
 
-    // If "My Orders" tab is clicked, load the orders
     if (tab === 'my-orders') {
       loadMyOrders();
     }
@@ -77,7 +73,6 @@ window.addEventListener('DOMContentLoaded', () => {
       if (section.dataset.section === tab) section.classList.add('active');
     });
 
-    // Load orders if returning to "my-orders"
     if (tab === 'my-orders') {
       loadMyOrders();
     }
@@ -104,7 +99,7 @@ document.getElementById('password-form').addEventListener('submit', async (e) =>
   if (newPassword.length < 6) {
     return showToast('Password must be at least 6 characters.', 'error');
   }
-  
+
 
   try {
     const res = await fetch('http://localhost:5000/api/auth/change-password', {
@@ -150,7 +145,6 @@ async function loadMyOrders() {
       return;
     }
 
-    // Cache product names to avoid duplicate fetches
     const productNameCache = {};
 
     async function getProductName(productId) {
@@ -240,7 +234,7 @@ document.getElementById('save-address-btn').addEventListener('click', async () =
     if (!res.ok) throw new Error('Failed to update address');
 
     showToast('Address updated successfully!', 'success');
-    loadAddress(); // Refresh current address
+    loadAddress();
   } catch (err) {
     console.error(err);
     showToast('Error updating address.', 'error');

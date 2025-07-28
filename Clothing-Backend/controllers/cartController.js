@@ -1,6 +1,5 @@
 const Cart = require('../models/Cart');
 
-// GET /api/cart/:userId → fetch user's cart with product details
 exports.getCart = async (req, res) => {
   try {
     const cart = await Cart.findOne({ userId: req.params.userId })

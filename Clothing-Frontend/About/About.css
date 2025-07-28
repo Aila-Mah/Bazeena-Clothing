@@ -1,13 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Ysabeau+Office:ital,wght@0,1..1000;1,1..1000&display=swap" rel="stylesheet');
-/*for Ysabeau Office font  (import or link)*/
-
-body {
-    font-family: "Ysabeau Office", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 550;
-    font-style: normal;
-    background: hsl(0, 0%, 100%);
-}
 
 /* GLOBAL */
 

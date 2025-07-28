@@ -92,8 +92,6 @@ async function updateCartUI(userId) {
     <button id="checkout-btn" class="btn btn-dark w-100 mt-2">PROCEED TO CHECKOUT</button>
   `;
 
-
-// Attach click handler after rendering
 const checkoutBtn = document.getElementById('checkout-btn');
 if (checkoutBtn) {
   checkoutBtn.addEventListener('click', () => {
@@ -120,7 +118,6 @@ async function changeQty(userId, productId, delta) {
   }
 }
 
-
 async function removeItem(userId, productId) {
   const res = await fetch('http://localhost:5000/api/cart/remove', {
     method: 'POST',
@@ -133,7 +130,7 @@ async function removeItem(userId, productId) {
   } else {
     alert(result.message || 'Failed to remove item');
   }
-}77
+}
 
 async function clearCart(userId) {
   const confirmClear = confirm("Are you sure you want to clear your cart?");

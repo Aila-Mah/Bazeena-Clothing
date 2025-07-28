@@ -1,11 +1,9 @@
 $(document).ready(function () {
-
-  /** CONTACT FORM VALIDATION **/
   $("#contactForm").on("submit", function (e) {
     e.preventDefault();
 
     // Clear old errors
-    $("#nameError, #emailError, #subjectError, #messageError").text("");
+    $("#nameError, #contactEmailError, #subjectError, #messageError").text("");
     $("#form-message-success").hide();
     $("#form-message-warning").hide();
 
@@ -46,12 +44,25 @@ $(document).ready(function () {
     }
 
     if (isValid) {
-      $("#form-message-success").show().text("Your message was sent, thank you!");
-      $("#contactForm")[0].reset();
-    } else {
-      $("#form-message-warning").show().text("Please correct the errors above and try again.");
+      const $submitBtn = $("input[type=submit]");
+      $submitBtn.prop("disabled", true).val("Sending...");
+
+      $.ajax({
+        url: 'http://localhost:5000/api/contact',
+        method: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({ name, email, subject, message }),
+        success: function (res) {
+          $("#form-message-success").show().text(res.message);
+          $("#contactForm")[0].reset();
+        },
+        error: function (xhr) {
+          $("#form-message-warning").show().text("Failed to send message. Please try again later.");
+        },
+        complete: function () {
+          $submitBtn.prop("disabled", false).val("Send Message");
+        }
+      });
     }
   });
-
-
 });
