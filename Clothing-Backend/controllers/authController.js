@@ -57,3 +57,48 @@ exports.getProfile = async (req, res) => {
     res.status(500).send('Server error');
   }
 };
+
+exports.updateAddress = async (req, res) => {
+  try {
+    const { address } = req.body;
+    if (!address) return res.status(400).json({ msg: 'Address is required' });
+
+    const user = await User.findByIdAndUpdate(
+      req.user.userId,
+      { address },
+      { new: true }
+    ).select('-password');
+
+    res.json({ msg: 'Address updated successfully', user });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server error');
+  }
+};
+
+exports.changePassword = async (req, res) => {
+  try {
+    const { currentPassword, newPassword } = req.body;
+
+    if (!currentPassword || !newPassword) {
+      return res.status(400).json({ msg: 'Both current and new passwords are required' });
+    }
+
+    const user = await User.findById(req.user.userId);
+    if (!user) return res.status(404).json({ msg: 'User not found' });
+
+    // Check current password
+    const isMatch = await bcrypt.compare(currentPassword, user.password);
+    if (!isMatch) return res.status(400).json({ msg: 'Current password is incorrect' });
+
+    // Hash and update new password
+    const salt = await bcrypt.genSalt(10);
+    user.password = await bcrypt.hash(newPassword, salt);
+    await user.save();
+
+    res.json({ msg: 'Password updated successfully' });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server error');
+  }
+};

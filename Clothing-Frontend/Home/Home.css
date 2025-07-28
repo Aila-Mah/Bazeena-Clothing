@@ -34,9 +34,26 @@ img {
     display: block;
 }
 
-button {
+.button {
     cursor: pointer;
     font-family: inherit;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    font-size: 1rem;
+    padding: 0.6rem 1.5rem;
+    border-radius: 7px;
+    margin-left: 215px;
+}
+
+.popular-products .button {
+    display: block;
+    margin: 0 auto;
+}
+
+.button:hover {
+    background: rgb(255, 255, 255);
+    font-weight: 600;
+    color: black;
 }
 
 .btn-outline-success {
@@ -211,7 +228,7 @@ button {
 /* EID AND ABOUT */
 
 .eid {
-    margin: 60px 0;
+    margin: 100px 0;
     text-align: center;
 }
 
@@ -241,23 +258,6 @@ label {
     font-weight: 300;
     text-align: justify;
     margin-bottom: 1.5rem;
-}
-
-.btn {
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-    background-color: #f3f3f3;
-    color: black;
-}
-
-.button {
-    font-size: 1rem;
-    padding: 0.3rem 0.6rem;
-    background-color: #f5f5f5;
-    color: black;
-    border-color: rgb(212, 212, 212);
-    border-radius: 7px;
-    margin-left: 215px;
 }
 
 /* RESPONSIVE BREAKPOINTS */

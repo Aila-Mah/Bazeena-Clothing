@@ -1,0 +1,65 @@
+/* Import your font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Ysabeau+Office:wght@300;400;500;600;700&display=swap');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: "Ysabeau Office", sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+  } 
+  
+  .background {
+    background-image: url('./Home/images/banner.webp');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+/* Position content on right half */
+.container {
+    max-width: 45%;
+    margin-left: auto;
+    margin-right: 1%;
+    margin-top: 100px;
+    padding: 40px;
+    text-align: left;
+}
+
+.container h4 {
+    font-size: 32px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.container label {
+    color: #f3f3f3;
+    font-size: 18px;
+    line-height: 1.8;
+    display: block;
+    margin-bottom: 25px;
+}
+
+.container .btn {
+    padding: 10px 25px;
+    font-size: 16px;
+    border-radius: 6px;
+    color: #fff;
+    background-color: transparent;
+    border: 1px solid #fff;
+    transition: all 0.3s ease;
+}
+
+.container .btn:hover {
+    background-color: white;
+    color: black;
+}

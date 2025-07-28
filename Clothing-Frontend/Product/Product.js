@@ -110,6 +110,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         cartIcon.addEventListener('click', async (e) => {
           e.stopPropagation();
           const productId = e.target.dataset.id;
+          console.log("🛒 Add to Cart clicked:", productId);  // 👈 Add this line
 
           try {
             const res = await fetch('http://localhost:5000/api/cart/add', {

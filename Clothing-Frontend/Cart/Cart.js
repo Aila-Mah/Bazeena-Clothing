@@ -89,8 +89,18 @@ async function updateCartUI(userId) {
       <span>Total</span>
       <span class="fw-bold">PKR ${grandTotal.toLocaleString()}</span>
     </div>
-    <button class="btn btn-dark w-100 mt-2">PROCEED TO CHECKOUT</button>
+    <button id="checkout-btn" class="btn btn-dark w-100 mt-2">PROCEED TO CHECKOUT</button>
   `;
+
+
+// Attach click handler after rendering
+const checkoutBtn = document.getElementById('checkout-btn');
+if (checkoutBtn) {
+  checkoutBtn.addEventListener('click', () => {
+    console.log('CLicked Checkout');
+    window.location.href = '../Checkout/checkout.html'; // ✅ Adjust path if needed
+  });
+}
 }
 
 async function changeQty(userId, productId, delta) {
