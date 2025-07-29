@@ -32,8 +32,7 @@ async function loadWishlist(userId) {
       return;
     }
 
-    grid.innerHTML = ''; // Clear any previous content
-
+    grid.innerHTML = ''; 
     data.products.forEach(product => {
         const imgSrc = product.images && product.images.length > 0
         ? product.images[0]
@@ -65,7 +64,6 @@ async function loadWishlist(userId) {
   }
 }
 
-// Init
 (async () => {
   const userId = await getUserIdFromProfile();
   if (userId) {

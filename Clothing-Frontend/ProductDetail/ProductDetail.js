@@ -1,20 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
-  console.log("✅ DOMContentLoaded triggered");
+  console.log("DOMContentLoaded triggered");
 
   const token = localStorage.getItem('token');
   if (!token) {
-    console.warn("⚠️ No token found. Redirecting to login...");
+    console.warn("No token found. Redirecting to login...");
     window.location.href = '../Auth/Login/Login.html';
     return;
   }
-  console.log("🔐 Token found:", token);
+  console.log("Token found:", token);
 
   const qtyInput = document.getElementById('quantity');
   const addToCartBtn = document.getElementById('add-to-cart');
   const urlParams = new URLSearchParams(window.location.search);
   const productId = urlParams.get('id');
 
-  console.log("🆔 Product ID from URL:", productId);
+  console.log("Product ID from URL:", productId);
 
   let product = null;
 
@@ -29,13 +29,12 @@ document.addEventListener('DOMContentLoaded', () => {
     return data._id;
   }
 
-  // Load product data
   if (productId) {
     console.log("📦 Fetching product details...");
     fetch(`http://localhost:5000/api/products/${productId}`)
       .then(res => res.json())
       .then(p => {
-        console.log("✅ Product fetched:", p);
+        console.log("Product fetched:", p);
         product = p;
 
         // UI update
@@ -75,52 +74,52 @@ document.addEventListener('DOMContentLoaded', () => {
             thumbnailsContainer.appendChild(thumb);
           });
         } else {
-          console.warn("⚠️ No images found for product");
+          console.warn("No images found for product");
           mainImg.src = 'https://via.placeholder.com/400x600?text=No+Image';
         }
       })
       .catch(err => {
-        console.error('❌ Error loading product:', err);
+        console.error('Error loading product:', err);
         alert('Failed to load product.');
       });
   } else {
-    console.warn("⚠️ No productId in URL. Cannot fetch product.");
+    console.warn("No productId in URL. Cannot fetch product.");
   }
 
   // Quantity buttons
   document.getElementById('increase').addEventListener('click', () => {
     qtyInput.value = parseInt(qtyInput.value) + 1;
-    console.log("🔼 Quantity increased to:", qtyInput.value);
+    console.log("Quantity increased to:", qtyInput.value);
   });
 
   document.getElementById('decrease').addEventListener('click', () => {
     if (parseInt(qtyInput.value) > 1) {
       qtyInput.value = parseInt(qtyInput.value) - 1;
-      console.log("🔽 Quantity decreased to:", qtyInput.value);
+      console.log("Quantity decreased to:", qtyInput.value);
     }
   });
 
   // Add to cart logic
   addToCartBtn.addEventListener('click', async () => {
     const quantity = parseInt(qtyInput.value);
-    console.log("🛒 Add to cart clicked with quantity:", quantity);
-  
+    console.log("Add to cart clicked with quantity:", quantity);
+
     if (!product) {
       showToast('Product not loaded yet.', 'error');
-      console.error("❌ Cannot add to cart - product not loaded.");
+      console.error("Cannot add to cart - product not loaded.");
       return;
     }
-  
+
     if (quantity > product.stock) {
       showToast(`Only ${product.stock} items in stock.`, 'error');
       console.warn(`⚠️ Requested ${quantity} but only ${product.stock} in stock.`);
       return;
     }
-  
+
     try {
       const userId = await getUserId();
-      console.log("🧑‍💻 Adding to cart for user:", userId);
-  
+      console.log("Adding to cart for user:", userId);
+
       const res = await fetch('http://localhost:5000/api/cart/add', {
         method: 'POST',
         headers: {
@@ -133,13 +132,13 @@ document.addEventListener('DOMContentLoaded', () => {
           quantity
         })
       });
-  
+
       const result = await res.json();
       console.log("Server response:", result);
-  
+
       if (res.ok) {
         showToast('Added to cart successfully!', 'success');
-        
+
       } else {
         showToast(result.message || 'Failed to add to cart', 'error');
         console.warn("Add to cart failed:", result.message);
@@ -149,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
       showToast('Error occurred while adding to cart.', 'error');
     }
   });
-  
+
 });
 
 function showToast(message, type = 'success') {
@@ -161,7 +160,6 @@ function showToast(message, type = 'success') {
 
   toastContainer.appendChild(toast);
 
-  // Auto remove after 3 seconds
   setTimeout(() => {
     toast.remove();
   }, 3000);

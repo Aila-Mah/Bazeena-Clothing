@@ -29,6 +29,24 @@ async function getUserId() {
   }
 }
 
+async function loadUserAddress() {
+  try {
+    const res = await fetch('http://localhost:5000/api/auth/profile', {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+
+    if (!res.ok) throw new Error('Unauthorized');
+
+    const user = await res.json();
+    const savedAddress = user.address || '';
+
+    document.getElementById('shippingAddress').value = savedAddress;
+  } catch (err) {
+    console.error('Failed to load address:', err);
+    showToast('Failed to load saved address.', 'error');
+  }
+}
+
 async function fetchCart(userId) {
   const res = await fetch(`http://localhost:5000/api/cart/${userId}`, {
     headers: { Authorization: `Bearer ${token}` }
@@ -140,7 +158,7 @@ async function placeOrder(userId, cart, shippingAddress, totalAmount) {
 
       setTimeout(() => {
         window.location.replace('../Account/Account.html');
-      }, 2000); // Wait for 3 seconds before redirecting
+      }, 2000); 
 
 
     } else {
@@ -155,6 +173,8 @@ async function placeOrder(userId, cart, shippingAddress, totalAmount) {
 (async () => {
   const userId = await getUserId();
   if (!userId) return;
+
+  await loadUserAddress();
 
   const { cart, grandTotal } = await updateOrderSummary(userId);
 

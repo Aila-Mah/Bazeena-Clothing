@@ -3,14 +3,14 @@
 /* GLOBAL */
 
 body {
-    font-family: "Ysabeau Office", sans-serif;
-    font-weight: 550;
-    background: hsl(0, 0%, 100%);
-    font-optical-sizing: auto;
-    margin: 0;
-    padding: 0;
-    line-height: 1.5;
-    color: #000;
+  font-family: "Ysabeau Office", sans-serif;
+  font-weight: 550;
+  background: hsl(0, 0%, 100%);
+  font-optical-sizing: auto;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  color: #000;
 }
 
 .product-grid {
@@ -30,7 +30,7 @@ body {
 }
 
 .product-card:hover {
-  box-shadow: 0 0 10px rgba(0,0,0,0.8);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 }
 
 .product-image {
@@ -122,8 +122,23 @@ body {
 }
 
 @keyframes fadeInOut {
-  0% { opacity: 0; transform: translateY(20px); }
-  10% { opacity: 1; transform: translateY(0); }
-  90% { opacity: 1; transform: translateY(0); }
-  100% { opacity: 0; transform: translateY(20px); }
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
 }

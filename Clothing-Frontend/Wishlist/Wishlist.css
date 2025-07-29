@@ -3,14 +3,14 @@
 /* GLOBAL */
 
 body {
-    font-family: "Ysabeau Office", sans-serif;
-    font-weight: 550;
-    background: hsl(0, 0%, 100%);
-    font-optical-sizing: auto;
-    margin: 0;
-    padding: 0;
-    line-height: 1.5;
-    color: #000;
+  font-family: "Ysabeau Office", sans-serif;
+  font-weight: 550;
+  background: hsl(0, 0%, 100%);
+  font-optical-sizing: auto;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  color: #000;
 }
 
 .product-grid {
@@ -30,7 +30,7 @@ body {
 }
 
 .product-card:hover {
-  box-shadow: 0 0 10px rgba(0,0,0,0.8);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 }
 
 .product-image {
@@ -57,5 +57,3 @@ body {
   color: green;
   font-weight: bold;
 }
-
-

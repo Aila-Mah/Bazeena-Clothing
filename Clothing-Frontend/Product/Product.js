@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     return;
   }
 
-  // Fetch user ID from backend
   async function getUserId() {
     const res = await fetch('http://localhost:5000/api/auth/profile', {
       headers: { Authorization: `Bearer ${token}` }
@@ -17,14 +16,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     const data = await res.json();
-    localStorage.setItem('userId', data._id); // Optional: cache for future use
+    localStorage.setItem('userId', data._id);
     return data._id;
   }
 
   const userId = await getUserId();
   if (!userId) return;
 
-  // Continue only if user is authenticated and ID is fetched
   const urlParams = new URLSearchParams(window.location.search);
   const category = urlParams.get('category');
 
@@ -70,13 +68,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         grid.appendChild(card);
 
-        // Card click = go to product detail
         card.addEventListener('click', () => {
           const detailUrl = `../ProductDetail/ProductDetail.html?id=${product._id}`;
           window.location.href = detailUrl;
         });
 
-        // Wishlist click
         const wishlistIcon = card.querySelector('.wishlist-icon');
         wishlistIcon.addEventListener('click', async (e) => {
           e.stopPropagation();
@@ -105,7 +101,6 @@ document.addEventListener('DOMContentLoaded', async () => {
           }
         });
 
-        // Cart click
         const cartIcon = card.querySelector('.cart-icon');
         cartIcon.addEventListener('click', async (e) => {
           e.stopPropagation();
@@ -151,7 +146,6 @@ function showToast(message, type = 'success') {
 
   toastContainer.appendChild(toast);
 
-  // Auto remove after 3 seconds
   setTimeout(() => {
     toast.remove();
   }, 3000);
